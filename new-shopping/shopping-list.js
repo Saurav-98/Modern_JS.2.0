@@ -5,6 +5,8 @@ const itemListEl = document.getElementById("item-list");
 const removeItemBtn = document.querySelectorAll(".remove-item");
 const clearBtn = document.getElementById("clear");
 const filterEl = document.getElementById("filter");
+const formBtn = document.getElementById("submit-btn");
+let isEditMode = false;
 // Helper Functions
 
 const displayItems = () => {
@@ -59,7 +61,15 @@ const addItemToStorage = (item) => {
 const onClickItem = (e) => {
   if (e.target.parentElement.classList.contains("remove-item")) {
     removeItem(e.target.parentElement.parentElement);
+  } else {
+    setItemToEdit(e.target);
   }
+};
+const setItemToEdit = (item) => {
+  isEditMode = true;
+  item.style.color = "#bbb";
+  formBtn.innerHTML = `<iclass="fa-solid fa-pen"></i>  Update Item`;
+  inputEl.value = item.textContent;
 };
 const removeItem = (item) => {
   if (confirm("Are you sure??")) {
