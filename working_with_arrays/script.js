@@ -99,9 +99,11 @@
 // console.log(movements);
 // console.log(movementsUsd);
 
-const movements = [5000, 3400, -150, -790, -3210, -1000, 8500, -30];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const depositMovements = movements.filter(movement => movement >= 0);
 const withdrawalMovements = movements.filter(movement => movement < 0);
 console.log(depositMovements);
 console.log(withdrawalMovements);
+
+console.log(movements.reduce((acc, crr) => acc + crr, 0));
