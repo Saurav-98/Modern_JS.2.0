@@ -90,6 +90,13 @@ const createUserNames = accounts => {
   });
 };
 
+const calcDisplayBalance = movements => {
+  const balance = movements.reduce((acc, cur) => acc + cur, 0);
+  // console.log(balance);
+  labelBalance.textContent = `${balance} EUR`;
+};
+
 displayTransactions(account1.movements);
+calcDisplayBalance(account1.movements);
 createUserNames(accounts);
-console.log(accounts);
+// console.log(accounts);
