@@ -61,6 +61,7 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+// Function to display Transactions
 const displayTransactions = transactions => {
   containerMovements.innerHTML = '';
   transactions.forEach((transaction, index) => {
@@ -77,5 +78,18 @@ const displayTransactions = transactions => {
     containerMovements.insertAdjacentHTML('afterbegin', transactionHtml);
   });
 };
+// Function to compute a username
+
+const createUserNames = accounts => {
+  accounts.forEach(account => {
+    const user = account.owner;
+    account.userName = user
+      .split(' ')
+      .map(item => item.charAt(0).toLowerCase())
+      .join('');
+  });
+};
 
 displayTransactions(account1.movements);
+createUserNames(accounts);
+console.log(accounts);
