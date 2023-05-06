@@ -18,3 +18,31 @@
 
 // dogsChallenge(juliaArr, kateArr);
 // dogsChallenge(juliaArr2, kateArr2);
+
+const data1 = [5, 2, 4, 1, 15, 8, 3];
+const data2 = [16, 6, 10, 5, 6, 1, 4];
+
+const calcAverageHumanAge = data => {
+  const humanAge = data.map(dog => (dog <= 2 ? 2 * dog : 16 + dog * 4));
+  const filteredDogs = humanAge.filter(dog => dog >= 18);
+  const average =
+    filteredDogs.reduce((acc, cur) => acc + cur, 0) / filteredDogs.length;
+  // const average = filteredDogs.reduce(
+  //   (acc, cur, i, arr) => acc + cur / arr.length,
+  //   0
+  // );
+  return average;
+};
+
+console.log(calcAverageHumanAge(data1));
+console.log(calcAverageHumanAge(data2));
+
+const calcAverageHumanAge2 = data => {
+  return data
+    .map(dog => (dog <= 2 ? 2 * dog : 16 + dog * 4))
+    .filter(dog => dog >= 18)
+    .reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
+};
+
+console.log(calcAverageHumanAge2(data1));
+console.log(calcAverageHumanAge2(data2));

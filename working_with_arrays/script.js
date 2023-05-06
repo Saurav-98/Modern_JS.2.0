@@ -93,7 +93,7 @@
 
 // DATA TRANSFORMATIONS WITH MAP, FILTER AND REDUCE
 
-// const eurToUsd = 1.1;
+const eurToUsd = 1.1;
 
 // const movementsUsd = movements.map(move => move * eurToUsd);
 // console.log(movements);
@@ -101,9 +101,57 @@
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const depositMovements = movements.filter(movement => movement >= 0);
-const withdrawalMovements = movements.filter(movement => movement < 0);
-console.log(depositMovements);
-console.log(withdrawalMovements);
+// const depositMovements = movements.filter(movement => movement >= 0);
+// const withdrawalMovements = movements.filter(movement => movement < 0);
+// console.log(depositMovements);
+// console.log(withdrawalMovements);
 
-console.log(movements.reduce((acc, crr) => acc + crr, 0));
+// console.log(movements.reduce((acc, crr) => acc + crr, 0));
+
+// const totalDepositUSD = movements
+//   .filter(mov => mov > 0)
+//   .map(mov => mov * eurToUsd)
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(totalDepositUSD);
+
+console.log(movements.find(mov => mov < 0));
+
+const account11 = {
+  owner: 'Jonas Schmedtmann',
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
+};
+
+const account21 = {
+  owner: 'Jessica Davis',
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
+};
+
+const account31 = {
+  owner: 'Steven Thomas Williams',
+  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  interestRate: 0.7,
+  pin: 3333,
+};
+
+const account41 = {
+  owner: 'Sarah Smith',
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
+};
+
+const accounts11 = [account11, account21, account31, account41];
+
+const account = accounts11.find(acc => (acc.owner = 'Jessica Davis'));
+
+// console.log(account);
+
+for (let a of accounts11) {
+  if (a.owner === 'Jessica Davis') {
+    console.log(a);
+  }
+}
