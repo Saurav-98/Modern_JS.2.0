@@ -99,8 +99,6 @@ const eurToUsd = 1.1;
 // console.log(movements);
 // console.log(movementsUsd);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 // const depositMovements = movements.filter(movement => movement >= 0);
 // const withdrawalMovements = movements.filter(movement => movement < 0);
 // console.log(depositMovements);
@@ -114,7 +112,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   .reduce((acc, mov) => acc + mov, 0);
 // console.log(totalDepositUSD);
 
-console.log(movements.find(mov => mov < 0));
+// console.log(movements.find(mov => mov < 0));
 
 const account11 = {
   owner: 'Jonas Schmedtmann',
@@ -143,15 +141,32 @@ const account41 = {
   interestRate: 1,
   pin: 4444,
 };
-
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const accounts11 = [account11, account21, account31, account41];
 
 const account = accounts11.find(acc => (acc.owner = 'Jessica Davis'));
 
-// console.log(account);
+// // console.log(account);
 
-for (let a of accounts11) {
-  if (a.owner === 'Jessica Davis') {
-    console.log(a);
-  }
-}
+// for (let a of accounts11) {
+//   if (a.owner === 'Jessica Davis') {
+//     console.log(a);
+//   }
+// }
+
+// console.log(movements.includes(-130));
+
+// console.log(movements.some(arr => arr > 1500));
+
+// const arr = [[1, [2, 3]], [4, 5], [[6, 7], 8], 9, 2];
+// console.log(arr);
+// console.log(arr.flat(2));
+
+console.log(movements);
+// console.log(movements.sort());
+
+console.log(movements.sort((a, b) => b - a));
+
+const x = new Array(7);
+x.fill(1, 3, 6);
+console.log(x);

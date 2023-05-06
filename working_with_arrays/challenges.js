@@ -34,8 +34,8 @@ const calcAverageHumanAge = data => {
   return average;
 };
 
-console.log(calcAverageHumanAge(data1));
-console.log(calcAverageHumanAge(data2));
+// console.log(calcAverageHumanAge(data1));
+// console.log(calcAverageHumanAge(data2));
 
 const calcAverageHumanAge2 = data => {
   return data
@@ -44,5 +44,5 @@ const calcAverageHumanAge2 = data => {
     .reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 };
 
-console.log(calcAverageHumanAge2(data1));
-console.log(calcAverageHumanAge2(data2));
+// console.log(calcAverageHumanAge2(data1));
+// console.log(calcAverageHumanAge2(data2));
