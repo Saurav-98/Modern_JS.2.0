@@ -114,37 +114,37 @@ const eurToUsd = 1.1;
 
 // console.log(movements.find(mov => mov < 0));
 
-const account11 = {
+const account01 = {
   owner: 'Jonas Schmedtmann',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
   pin: 1111,
 };
 
-const account21 = {
+const account02 = {
   owner: 'Jessica Davis',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
 };
 
-const account31 = {
+const account03 = {
   owner: 'Steven Thomas Williams',
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
   pin: 3333,
 };
 
-const account41 = {
+const account04 = {
   owner: 'Sarah Smith',
   movements: [430, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 4444,
 };
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-const accounts11 = [account11, account21, account31, account41];
+// const accounts11 = [account11, account21, account31, account41];
 
-const account = accounts11.find(acc => (acc.owner = 'Jessica Davis'));
+// const account = accounts11.find(acc => (acc.owner = 'Jessica Davis'));
 
 // // console.log(account);
 
@@ -162,11 +162,52 @@ const account = accounts11.find(acc => (acc.owner = 'Jessica Davis'));
 // console.log(arr);
 // console.log(arr.flat(2));
 
-console.log(movements);
-// console.log(movements.sort());
+// console.log(movements);
+// // console.log(movements.sort());
 
-console.log(movements.sort((a, b) => b - a));
+// console.log(movements.sort((a, b) => b - a));
 
-const x = new Array(7);
-x.fill(1, 3, 6);
-console.log(x);
+// const x = new Array(7);
+// x.fill(1, 3, 6);
+// console.log(x);
+
+const accounts01 = [account01, account02, account03, account04];
+
+const bankDepositSum = accounts01
+  .flatMap(arr => arr.movements)
+  .filter(mov => mov > 0)
+  .reduce((acc, cur) => acc + cur, 0);
+console.log(bankDepositSum);
+
+//
+const numDeposits1000 = accounts01
+  .flatMap(arr => arr.movements)
+  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
+
+console.log(numDeposits1000);
+//
+const sums = accounts01
+  .flatMap(arr => arr.movements)
+  .reduce(
+    (sums, cur) => {
+      cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+
+const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with', 'of'];
+console.log(sums);
+const converTitleCase = title =>
+  title
+    .split(' ')
+    .map(word =>
+      exceptions.includes(word)
+        ? word
+        : word.at(0).toUpperCase().concat(word.slice(1))
+    )
+
+    .join(' ');
+console.log(
+  converTitleCase('this is a nice title of the World but not too long.')
+);
